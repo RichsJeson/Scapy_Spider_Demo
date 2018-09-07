@@ -1,0 +1,11 @@
+dj_spider/dj_spider/__pycache__/__init__.cpython-37.pyc
+dj_spider/dj_spider/__pycache__/settings.cpython-37.pyc
+dj_spider/dj_spider/commands/__pycache__/__init__.cpython-37.pyc
+dj_spider/dj_spider/commands/__pycache__/crawlall.cpython-37.pyc
+dj_spider/dj_spider/items/__pycache__/__init__.cpython-37.pyc
+dj_spider/dj_spider/items/__pycache__/taobao_category_items.cpython-37.pyc
+dj_spider/dj_spider/middlewares/__pycache__/__init__.cpython-37.pyc
+dj_spider/dj_spider/middlewares/__pycache__/taobao_category_middlewares.cpython-37.pyc
+dj_spider/dj_spider/pipelines/__pycache__/taobao_category_pipelines.cpython-37.pyc
+dj_spider/dj_spider/spiders/__pycache__/__init__.cpython-37.pyc
+dj_spider/dj_spider/spiders/__pycache__/taobao_category_spider.cpython-37.pyc
