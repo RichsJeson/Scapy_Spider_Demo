@@ -5,7 +5,7 @@ from scrapy import Request, Selector
 from dj_spider.items.taobao_category_items import Category
 
 
-class TTLevelCategorySprider(scrapy.Spider):
+class CategorySprider(scrapy.Spider):
     name = 'taobao_level_category'
 
     start_urls = ['https://www.taobao.com']

@@ -35,15 +35,15 @@ class CategoryPipelines(object):
 
     # process_item方法是必须写的，用来处理item数据
     def process_item(self, item, spider):
-        # try:
-        #     # 通过连接池执行具体的sql操作，返回一个对象
-        #     query = self.db_conn.runInteraction(self.go_insert,self.insert_sql,item,spider)
-        #     # 对错误信息进行提示处理
-        #     query.addCallbacks(self.handle_error)
-        #     text = json.dumps(dict(item), ensure_ascii=False) + ",\n"
-        #     self.filename.write(text)
-        # except Exception as e:
-        #     print('error：',e)
+        try:
+            # 通过连接池执行具体的sql操作，返回一个对象
+            query = self.db_conn.runInteraction(self.go_insert,self.insert_sql,item,spider)
+            # 对错误信息进行提示处理
+            query.addCallbacks(self.handle_error)
+            text = json.dumps(dict(item), ensure_ascii=False) + ",\n"
+            self.filename.write(text)
+        except Exception as e:
+            print('error：',e)
         print('iten:',item['category_name'])
         text = json.dumps(dict(item), ensure_ascii=False) + ",\n"
         self.filename.write(text)
