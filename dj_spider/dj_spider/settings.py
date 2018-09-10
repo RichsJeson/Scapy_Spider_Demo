@@ -106,6 +106,7 @@ MONGO_URI = 'localhost'
 MONGO_DB = 'taobao'
 
 DOWNLOADER_MIDDLEWARES = {
-    'dj_spider.middlewares.taobao_category_middlewares.CategoryMiddlewares': 543,
+    # 'dj_spider.middlewares.taobao_category_middlewares.CategoryMiddlewares': 543,
+    'dj_spider.middlewares.taobao_shoplist_middlewares.CategoryMiddlewares': 544,
     'scrapy.spidermiddlewares.offsite.OffsiteMiddleware': None,
 }
