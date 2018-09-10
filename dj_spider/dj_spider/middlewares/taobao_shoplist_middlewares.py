@@ -7,6 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium import webdriver
 from dj_spider.items.taobao_shop_items import ShopItem
+from dj_spider.conf.config import config
 import json
 #下载中间件，为了方便模拟点击淘宝界面上的ICON栏，
 
@@ -15,7 +16,7 @@ class CategoryMiddlewares(object):
     def __init__(self, timeout=None, service_args=[]):
         # self.logger = getLogger(__name__)
         self.timeout = timeout
-        self.browser = webdriver.PhantomJS('/Users/richsjeson/compile/phatomjs/bin/phantomjs')
+        self.browser = webdriver.PhantomJS(config.phantomjs_path)
         self.browser.set_page_load_timeout(self.timeout)
         self.wait = WebDriverWait(self.browser, self.timeout)
         self.filename = open("shop_item.json", "w")
