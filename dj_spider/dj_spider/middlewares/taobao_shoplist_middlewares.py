@@ -40,6 +40,7 @@ class CategoryMiddlewares(object):
                         #执行数据提取的操作
                         items=item.find_element_by_class_name('J_IconMoreNew')
                         items_title=items.find_element_by_class_name('J_ClickStat')
+                        print('item_title:----',items_title.text)
                         price=items.find_element_by_class_name('g_price')
                         payer=items.find_element_by_class_name('deal-cnt')
                         address=items.find_element_by_class_name('location')
@@ -60,6 +61,7 @@ class CategoryMiddlewares(object):
                         text = json.dumps(dict(shop_item), ensure_ascii=False) + ",\n"
                         print('数据写入完成text：',text)
                         self.filename.write(text)
+                        break
                     print('数据写入完成')
                     self.filename.close()
                     return HtmlResponse(url=request.url, request=request, body=self.browser.page_source, encoding='utf-8',
