@@ -7,6 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium import webdriver
 from dj_spider.items.taobao_shop_items import ShopItem
+from dj_spider.conf.config import config
 import json
 #下载中间件，为了方便模拟点击淘宝界面上的ICON栏，
 
@@ -15,7 +16,7 @@ class CategoryMiddlewares(object):
     def __init__(self, timeout=None, service_args=[]):
         # self.logger = getLogger(__name__)
         self.timeout = timeout
-        self.browser = webdriver.PhantomJS('/Users/richsjeson/compile/phatomjs/bin/phantomjs')
+        self.browser = webdriver.PhantomJS(config.phantomjs_path)
         self.browser.set_page_load_timeout(self.timeout)
         self.wait = WebDriverWait(self.browser, self.timeout)
         self.filename = open("shop_item.json", "w")
@@ -35,7 +36,9 @@ class CategoryMiddlewares(object):
                 responseType=request.meta.get('shop_list')
                 if  responseType==4:
                     self.browser.get(request.url)
+                    print('moziqi111')
                     shop_item=self.browser.find_elements_by_class_name('J_ItemListSKUItem')
+                    print('moziqi2222'+shop_item)
                     for item in shop_item:
                         #执行数据提取的操作
                         items=item.find_element_by_class_name('J_IconMoreNew')
@@ -67,7 +70,7 @@ class CategoryMiddlewares(object):
                     return HtmlResponse(url=request.url, request=request, body=self.browser.page_source, encoding='utf-8',
                                     status=200)
             except TimeoutException as e:
-                    print('e:',e)
+                    print('e.moziqi:',e)
                     return HtmlResponse(url=request.url, status=500, request=request)
             pass
 
