@@ -36,7 +36,9 @@ class CategoryMiddlewares(object):
                 responseType=request.meta.get('shop_list')
                 if  responseType==4:
                     self.browser.get(request.url)
+                    print('moziqi111')
                     shop_item=self.browser.find_elements_by_class_name('J_ItemListSKUItem')
+                    print('moziqi2222'+shop_item)
                     for item in shop_item:
                         #执行数据提取的操作
                         items=item.find_element_by_class_name('J_IconMoreNew')
@@ -68,7 +70,7 @@ class CategoryMiddlewares(object):
                     return HtmlResponse(url=request.url, request=request, body=self.browser.page_source, encoding='utf-8',
                                     status=200)
             except TimeoutException as e:
-                    print('e:',e)
+                    print('e.moziqi:',e)
                     return HtmlResponse(url=request.url, status=500, request=request)
             pass
 

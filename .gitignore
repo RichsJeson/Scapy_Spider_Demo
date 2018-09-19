@@ -9,3 +9,7 @@ dj_spider/dj_spider/middlewares/__pycache__/taobao_category_middlewares.cpython-
 dj_spider/dj_spider/pipelines/__pycache__/taobao_category_pipelines.cpython-37.pyc
 dj_spider/dj_spider/spiders/__pycache__/__init__.cpython-37.pyc
 dj_spider/dj_spider/spiders/__pycache__/taobao_category_spider.cpython-37.pyc
+
+.idea/
+
+dj_spider/
